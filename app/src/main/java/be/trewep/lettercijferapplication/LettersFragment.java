@@ -13,14 +13,12 @@ public class LettersFragment extends Fragment {
 
     LetterViewModel viewModel;
 
-    public LettersFragment() {
-        // Required empty public constructor
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(LetterViewModel.class);
+
     }
 
     @Override

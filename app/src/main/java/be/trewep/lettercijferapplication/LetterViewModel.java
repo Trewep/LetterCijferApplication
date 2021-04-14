@@ -96,4 +96,7 @@ public class LetterViewModel extends ViewModel {
         return !isVowel(c);
     }
 
+    public void nextRound() {
+
+    }
 }

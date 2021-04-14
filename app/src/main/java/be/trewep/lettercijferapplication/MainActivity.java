@@ -22,7 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
     Timer t = new Timer();
     private static int PERIOD = 1000;
+    //lettersapplication copy
+    TextView tvLetter;
+    //lettersapplication copy
 
+    LetterViewModel viewModel = new ViewModelProvider(this).get(LetterViewModel.class);
+
+    LettersFragment lettersFragment;
+    NumbersFragment numbersFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,36 +56,6 @@ public class MainActivity extends AppCompatActivity {
             pb.setProgress(number);
         });
 
-    }
-
-    public void add(View w)  {
-        number.setValue(number.getValue() + 1);
-    }
-
-    public void startTimer(View w)  {
-        t.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                number.postValue(number.getValue() + 1);
-            }
-        }, 2000, PERIOD);
-    }
-
-
-
-    //lettersapplication copy
-    TextView tvLetter;
-    LetterViewModel viewModel;
-
-    LettersFragment lettersFragment;
-    NumbersFragment numbersFragment;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        viewModel = new ViewModelProvider(this).get(LetterViewModel.class);
         lettersFragment = new LettersFragment();
         numbersFragment = new NumbersFragment();
 
@@ -95,6 +72,21 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    public void add(View w)  {
+        number.setValue(number.getValue() + 1);
+    }
+
+    public void startTimer(View w)  {
+        t.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                number.postValue(number.getValue() + 1);
+            }
+        }, 2000, PERIOD);
+    }
+
+
+    //lettersapplication copy
     public void toLetters(View v) {
         viewModel.nextRound();
 
