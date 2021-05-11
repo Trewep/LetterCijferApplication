@@ -24,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private static int PERIOD = 1000;
     //lettersapplication copy
     TextView tvLetter;
-    //lettersapplication copy
-
-    LetterViewModel viewModel = new ViewModelProvider(this).get(LetterViewModel.class);
+    LetterViewModel viewModel;
 
     LettersFragment lettersFragment;
     NumbersFragment numbersFragment;
@@ -55,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
         number.observe(this , number -> {
             pb.setProgress(number);
         });
+        //lettersapplication copy
 
+        viewModel = new ViewModelProvider(this).get(LetterViewModel.class);
         lettersFragment = new LettersFragment();
         numbersFragment = new NumbersFragment();
 

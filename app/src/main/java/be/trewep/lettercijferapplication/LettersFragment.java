@@ -13,18 +13,20 @@ public class LettersFragment extends Fragment {
 
     LetterViewModel viewModel;
 
+    public LettersFragment() {
+        super(R.layout.fragment_letters);
+    }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = new ViewModelProvider(getActivity()).get(LetterViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(LetterViewModel.class);
 
     }
 
